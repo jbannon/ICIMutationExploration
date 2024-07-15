@@ -89,7 +89,7 @@ def main():
 
 	patient_info = patient_info[patient_info['BEST_OVERALL_RESPONSE']!='NE']
 	patient_info['Binary Response'] = patient_info['BEST_OVERALL_RESPONSE'].apply(lambda x: "Responder" if x in ['PR','CR'] else "Non-Responder")
-
+	print(patient_info['Binary Response'].value_counts())
 	ax = plt.subplot(111)
 	times = {}
 	events ={}
@@ -153,6 +153,16 @@ def main():
 		NR = temp[temp['Response']=='Non-Responder']
 		RC = R['Hugo_Symbol'].value_counts()
 		NC = NR['Hugo_Symbol'].value_counts()
+		
+		# print("--------")
+		# print(vaf_cut)
+		# print(np.sum(NC))
+		# print(np.sum(RC))
+		# print("--------")
+		# RC = RC/np.sum(RC)
+		# NC = NC/np.sum(NC)
+
+
 
 
 		RC_var = list(RC[:5].index)
