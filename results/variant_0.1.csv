@@ -1,0 +1,13 @@
+,Variant_Classification,count,Response
+0,Missense Mutation,0.3553076246470071,Responder
+1,Intron,0.2858663950743021,Responder
+2,Silent,0.1375862228600528,Responder
+3,Splice Region,0.03837785287718161,Responder
+4,5'Flank,0.035507615388176476,Responder
+7,3'Flank,0.02439701865654368,Responder
+0,Intron,0.5268585131894484,Non-Responder
+1,Missense Mutation,0.1751558752997602,Non-Responder
+2,5'Flank,0.06959232613908872,Non-Responder
+3,Silent,0.0679136690647482,Non-Responder
+4,3'Flank,0.048345323741007196,Non-Responder
+6,Splice Region,0.023213429256594725,Non-Responder

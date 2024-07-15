@@ -1,0 +1,6 @@
+DrugName	Chebi_ID
+Erlotinib	CHEBI:114785
+Sunitinib	CHEBI:38940
+Imatinib	CHEBI:45783
+Paclitaxel	CHEBI:45863
+Crizotinib	CHEBI:64310
