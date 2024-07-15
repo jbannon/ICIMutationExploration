@@ -154,13 +154,13 @@ def main():
 		RC = R['Hugo_Symbol'].value_counts()
 		NC = NR['Hugo_Symbol'].value_counts()
 		
-		# print("--------")
-		# print(vaf_cut)
-		# print(np.sum(NC))
-		# print(np.sum(RC))
-		# print("--------")
-		# RC = RC/np.sum(RC)
-		# NC = NC/np.sum(NC)
+		print("--------")
+		print(vaf_cut)
+		print(np.sum(NC))
+		print(np.sum(RC))
+		print("--------")
+		RC = (RC/np.sum(RC))*100
+		NC = (NC/np.sum(NC))*100
 
 
 
@@ -182,7 +182,7 @@ def main():
 		df = df[df['Hugo_Symbol'].isin(all_vars)]
 		df.to_csv(f"../results/genes_{vaf_cut}.csv")
 		ax = sns.barplot(df,x='Hugo_Symbol',y='count',hue='Response')
-		ax.set(ylabel = "Count of Mutation Instances",xlabel = "Gene", title = f"Counts of Mutation Instances per Gene\n VAF Cutoff at {vaf_cut}")
+		ax.set(ylabel = "Percentage of Missense Mutation Instances",xlabel = "Gene", title = f"Percent of Mutation Instances per Gene\n VAF Cutoff at {vaf_cut}")
 		plt.savefig(f"../figs/MUT_{vaf_cut}.png",dpi=500)
 		plt.close()
 		
