@@ -61,7 +61,13 @@ def main():
 	# print(results.p_value)      
 	# print(results.test_statistic) # 0.0872
 	print(f"TMB - \tLog-rank p-value: {np.round(results.p_value,4)}")
-	ax.set(title = f"Kaplan Meier Curves for TMB Stratification",xlabel = 'Time (Months)',ylabel= "Survival Probability")
+	ax.set_xlabel('Time (Months)', fontsize = 15)
+	ax.set_ylabel("Survival Probability",fontsize = 15)
+	ax.set_title(f"Kaplan Meier Curves for TMB Stratification", {"fontsize":17})
+	ax.set_xticklabels(ax.get_xticklabels(), fontsize=12)
+	ax.set_yticklabels(ax.get_yticklabels(), fontsize=12)
+	
+	# ax.set(title = ,xlabel = ,ylabel= )
 	plt.savefig("../figs/TMB_Upper_vs_Lower_Third.png",dpi=500)
 	plt.close()
 	ax = plt.subplot(111)
@@ -83,7 +89,12 @@ def main():
 	# print(results.p_value)      
 	# print(results.test_statistic) # 0.0872
 	print(f"Neoantigen - \tLog-rank p-value: {np.round(results.p_value,3)}")
-	ax.set(title = f"Kaplan Meier Curves for Neoantigen Load Stratification",xlabel = 'Time (Months)',ylabel= "Survival Probability")
+	ax.set_xlabel('Time (Months)', fontsize = 15)
+	ax.set_ylabel("Survival Probability",fontsize = 15)
+	ax.set_title(f"Kaplan Meier Curves for Neoantigen Load Stratification", {"fontsize":17})
+	ax.set_xticklabels(ax.get_xticklabels(), fontsize=12)
+	ax.set_yticklabels(ax.get_yticklabels(), fontsize=12)
+	
 	plt.savefig("../figs/Neoantigen_Upper_vs_Lower_Third.png",dpi=500)
 	plt.close()
 
@@ -107,7 +118,12 @@ def main():
 	# print("responders")
 	# results.print_summary()
 	print(f"resp vs non-resp Log-rank p-value: {np.round(results.p_value,8)}")
-	ax.set(title = f"Kaplan Meier Curves for Responders and Non-Responders",xlabel = 'Time (Months)',ylabel= "Survival Probability")
+	ax.set_xlabel('Time (Months)', fontsize = 15)
+	ax.set_ylabel("Survival Probability",fontsize = 15)
+	ax.set_title(f"Kaplan Meier Curves for Responders and Non-Responders", {"fontsize":17})
+	ax.set_xticklabels(ax.get_xticklabels(), fontsize=12)
+	ax.set_yticklabels(ax.get_yticklabels(), fontsize=12)
+	# ax.set(title = ,xlabel = 'Time (Months)',ylabel= "Survival Probability")
 	plt.savefig("../figs/R_vs_NR.png",dpi=500)
 	plt.close()
 
@@ -143,7 +159,13 @@ def main():
 		df = df[df['Variant_Classification'].isin(all_vars)]
 		df.to_csv(f"../results/variant_{vaf_cut}.csv")
 		ax = sns.barplot(df,x='Variant_Classification',y='count',hue='Response')
-		ax.set(ylabel = "Count of Mutation Instances",xlabel = "Variant Classification", title = f"Counts of Variant Classifications\n VAF Cutoff at {vaf_cut}")
+
+		ax.set_xlabel("Variant Classification", fontsize = 15)
+		ax.set_ylabel("Count of Mutation Instances",fontsize = 15)
+		ax.set_title(f"Counts of Variant Classifications\n VAF Cutoff at {vaf_cut}", {"fontsize":17})
+		ax.set_xticklabels(ax.get_xticklabels(), fontsize=12)
+		ax.set_yticklabels(ax.get_yticklabels(), fontsize=12)
+		
 		plt.savefig(f"../figs/VAF_{vaf_cut}.png",dpi=500)
 		plt.close()
 
@@ -182,7 +204,13 @@ def main():
 		df = df[df['Hugo_Symbol'].isin(all_vars)]
 		df.to_csv(f"../results/genes_{vaf_cut}.csv")
 		ax = sns.barplot(df,x='Hugo_Symbol',y='count',hue='Response')
-		ax.set(ylabel = "Percentage of Missense Mutation Instances",xlabel = "Gene", title = f"Percent of Mutation Instances per Gene\n VAF Cutoff at {vaf_cut}")
+		ax.set_xlabel("Gene", fontsize = 15)
+		ax.set_ylabel("Percentage of Missense Mutation Instances",fontsize = 15)
+		ax.set_title(f"Percent of Mutation Instances per Gene\n VAF Cutoff at {vaf_cut}", {"fontsize":17})
+		ax.set_xticklabels(ax.get_xticklabels(), fontsize=12)
+		ax.set_yticklabels(ax.get_yticklabels(), fontsize=12)
+		
+		
 		plt.savefig(f"../figs/MUT_{vaf_cut}.png",dpi=500)
 		plt.close()
 		
